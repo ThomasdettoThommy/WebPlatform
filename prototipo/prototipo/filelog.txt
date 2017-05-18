@@ -1,0 +1,21 @@
+Try
+NrFat = CInt(row.Item("NrFattura"))
+DataFat = CDate(row.Item("Data"))
+Denominazione = CStr(row.Item("Denominazione"))
+Email = CStr((row.Item("Mail")))
+Catch thisexcept As Exception
+
+MessageBox.Show(thisexcept.Source.ToString)
+MsgBox(thisexcept)
+Dim entry As EventLogEntry
+If EventLog1.Entries.Count > 0 Then
+For Each entry In EventLog1.Entries
+System.Windows.Forms.MessageBox.Show(entry.Message)
+Next
+Else
+MessageBox.Show("There are no entries in the log.")
+End If
+'scrive voci nel file di log 
+
+EventLog1.WriteEntry("Questo e un messaggio informativo")
+EventLog1.WriteEntry("Questo e un messaggio di errore", Diagnostics.EventLogEntryType.Error)

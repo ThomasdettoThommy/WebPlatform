@@ -1,0 +1,97 @@
+body{
+	background-image: url(./img/iMail_background.jpg)
+}
+
+.textfield{
+    font-family: MS Shell Dlg;
+    font-size: 16px;
+    background: #C0C0C0;
+    width: 230px;
+    padding: 6px;
+    margin-bottom: 10px;
+    border-top: 1px solid #ad64e0;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 0px;
+}
+
+.button{
+    background: #003399;
+    Color: #EEEEEE;
+    border: 1px solid #003399;
+    font-family: MS Shell Dlg;
+    font-size: 14;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: #000 1px 1px;
+    border-top: 1px solid #ad64e0;
+    margin-top: 10px;
+}
+
+h2{
+    font-family: Candara;
+    color: #000099;
+    left: 15px;
+    font-size: 52px;
+}
+
+#loginWrapper{
+    position: relative;
+    left: 35%;
+    top: 10%;
+}
+
+#loginForm{
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #270644;
+    background-image: url(img/iMail_background.jpg);
+    background-repeat: repeat-x;
+    background-position: top;
+
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 16px;
+    color: #0022cc;
+    
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+}
+
+#loginButton{
+	width: 100px;
+	position: relative;
+	left: 35%;
+}
+
+#titleImage{
+    position: relative;
+    left: 95px;
+}
+
+#registrationWrapper{
+	left: 35%;
+	top: 10%;
+}
+
+#regForm{
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #270644;
+    background-image: url(img/iMail_background.jpg);
+    background-repeat: repeat-x;
+    background-position: top;
+
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 16px;
+    color: #0022cc;
+
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+}
+
+#loginNav{
+    font-family: Candara;
+    vertical-align: bottom;
+    position: relative;
+    left: 70px;
+}

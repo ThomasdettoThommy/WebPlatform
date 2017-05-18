@@ -1,0 +1,268 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<link href="../AWICE/jquery-ui/css/ui-lightness/jquery-ui-1.8.11.custom.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../AWICE/jquery-ui/js/jquery-1.5.1.min.js"></script>
+<script type="text/javascript" src="../AWICE/jquery-ui/js/jquery-ui-1.8.11.custom.min.js"></script>
+
+<title>iMail</title>
+
+<style>
+<!--
+	.column { float: left; width: 33.3%; padding: 0; margin: 10px 0; }
+	.portlet { margin: auto; }
+	.portlet-header { margin: 0.3em; padding-bottom: 4px; padding-left: 0.2em; }
+	.portlet-header .ui-icon { float: right; }
+	.portlet-content { padding: 0.4em; }
+	.ui-sortable-placeholder { border: 1px dotted black; visibility: visible !important; height: 50px !important; }
+	.ui-sortable-placeholder * { visibility: hidden; } body {
+	background-image: url(iMail_background.jpg);
+}
+-->
+</style>
+
+<script>
+	// incrementare la velocità di default dell'animazione per esagerare l'effetto
+	// ogni finestra necessita della sua definizione qua sotto 
+	$.fx.speeds._default = 1000;
+	$(function() {
+		$( "#dialog1" ).dialog({
+			autoOpen: false,
+			show: "blind",
+			hide: "explode",
+		});
+		$( "#dialog2" ).dialog({
+			autoOpen: false,
+			show: "blind",
+			hide: "explode"
+		});
+		$( "#dialog3" ).dialog({
+			autoOpen: false,
+			show: "blind",
+			hide: "explode",
+		});
+		$( "#dialog4" ).dialog({
+			autoOpen: false,
+			show: "blind",
+			hide: "explode",
+		});
+		
+		$( "#opener1" ).click(function() {
+			$( "#dialog1" ).dialog( "open" );
+			return false;
+		});
+		$( "#opener2" ).click(function() {
+			$( "#dialog2" ).dialog( "open" );
+			return false;
+		});
+		$( "#opener3" ).click(function() {
+			$( "#dialog3" ).dialog( "open" );
+			return false;
+		});
+		$( "#opener4" ).click(function() {
+			$( "#dialog4" ).dialog( "open" );
+			return false;
+		});
+		//per renderli portlets
+		
+		$( ".column" ).sortable({
+			connectWith: ".column"
+		});
+
+		//primo stile portlet
+		$( ".portlet" ).addClass( "ui-widget ui-widget-content-3 ui-helper-clearfix ui-corner-all" ) //per modificare lo stile modifica le classi in addClass
+			.find( ".portlet-header" )
+				.addClass( "ui-widget-header ui-corner-all" )
+				.prepend( "<span class='ui-icon ui-icon-minusthick'></span>")
+				.end()
+			.find( ".portlet-content" );
+
+		$( ".portlet-header .ui-icon" ).click(function() {			//penso sia solo per l'evento click e relativo pulsante
+			$( this ).toggleClass( "ui-icon-minusthick" ).toggleClass( "ui-icon-plusthick" );
+			$( this ).parents( ".portlet:first" ).find( ".portlet-content" ).toggle();
+		});
+		
+		//secondo stile portlet
+		$( ".portlet_2" ).addClass( "ui-widget ui-widget-content-2 ui-helper-clearfix ui-corner-all" ) //per modificare lo stile modifica le classi in addClass -->  ui-widger-content; ui-widget-header;
+			.find( ".portlet-header" )
+				.addClass( "ui-widget-header ui-corner-all" )
+				.prepend( "<span class='ui-icon ui-icon-minusthick'></span>")
+				.end()
+			.find( ".portlet-content_2" );
+
+		$( ".portlet-header .ui-icon" ).click(function() {
+			$( this ).toggleClass( "ui-icon-minusthick" ).toggleClass( "ui-icon-plusthick" );
+			$( this ).parents( ".portlet_2:first" ).find( ".portlet-content_2" ).toggle();
+		});
+		
+		//terzo stile portlet
+		$( ".portlet_3" ).addClass( "ui-widget ui-widget-content-4 ui-helper-clearfix ui-corner-all" ) //per modificare lo stile modifica le classi in addClass
+			.find( ".portlet-header" )
+				.addClass( "ui-widget-header ui-corner-all" )
+				.prepend( "<span class='ui-icon ui-icon-minusthick'></span>")
+				.end()
+			.find( ".portlet-content_3" );
+
+		$( ".portlet-header .ui-icon" ).click(function() {			//penso sia solo per l'evento click e relativo pulsante
+			$( this ).toggleClass( "ui-icon-minusthick" ).toggleClass( "ui-icon-plusthick" );
+			$( this ).parents( ".portlet_3:first" ).find( ".portlet-content_3" ).toggle();
+		});
+		
+		//end portlet
+		
+		$( ".column" ).disableSelection();
+	});
+	
+	$(function() {
+		$( "#tabs" ).tabs();
+	});
+	
+	function widget_pos(){
+		
+		var lista = " ";
+
+		for(j=1; j < 4; j++){
+			
+		lista = lista + "col_" + j + "= ";
+		
+		var column = document.getElementById("col_" + j);
+			var lista_wid = column.getElementsByTagName('div');
+ 			for(i=0; i < lista_wid.length; i++){
+  				if(lista_wid.item(i).getAttribute("id") == "meteo")
+   				lista = lista + "meteo, ";
+				if(lista_wid.item(i).getAttribute("id") == "news")
+				lista = lista + "news, ";
+				if(lista_wid.item(i).getAttribute("id") == "mario")
+				lista = lista + "mario, ";
+				if(lista_wid.item(i).getAttribute("id") == "tabs")
+				lista = lista + "tabs, ";
+			}
+		}
+
+		alert(lista); // dario questo te lo metto per farti vedere come ti arriva la stringa ma poi va levato
+	}
+	
+</script>
+</head>
+
+<body>
+
+<h1 align="center" class="ui-state-focus"> iMail My Homepage</h1>
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <blockquote>
+        <blockquote>
+          <blockquote>
+            <blockquote>
+              <blockquote>
+                <blockquote>
+                  <blockquote>
+                    <blockquote>
+                      <p align="center" class="ui-widget-header"> <a href="login.html">Login</a> &nbsp; &nbsp; | &nbsp;&nbsp;<a href="register.html">Registrazione</a> &nbsp;&nbsp; | &nbsp;&nbsp; <a href="pannello_di_controllo.html">Pannello di Controllo</a> &nbsp;&nbsp; </p>
+                    </blockquote>
+                  </blockquote>
+                </blockquote>
+              </blockquote>
+            </blockquote>
+          </blockquote>
+        </blockquote>
+      </blockquote>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<div align="right">
+<form action="homepage.html">
+<input type='submit' onclick='widget_pos()' value='Salva posizione widget' />
+</form>
+</div>
+
+<p><!-- qua si istanziano le finestre --></p>
+<p>&nbsp;</p>
+
+<div class="column" id="col_1">
+	<div class="portlet" id="meteo">
+        <div class="portlet-header">Meteo</div>
+                <div class="portlet-content" align="center">
+                    <iframe id="wdgtmeteoframe" src="http://meteo.sky.it/widget/meteo/widget.html" width="95%" height="350px" scrolling="no" style="border: 0px" frameborder="0">
+                    </iframe>
+                </div>
+        </div> <img src="../../../../../miosito/www/img/sostegno_invisibile.jpg" width="400" height="10" />
+	</div>
+   
+</div>
+
+<div class="column" id="col_2">
+	<div id="tabs">
+		<ul>
+			<li><a href="#tabs-1">In Arrivo</a></li>
+			<li><a href="#tabs-2">Inviata</a></li>
+			<li><a href="#tabs-3">Bozze</a></li>
+		</ul>
+        
+		<div id="tabs-1">
+			<p>
+       	  <div id="dialog1" title="Mario Rossi">
+					<p>Domani c'&egrave; il sole. O forse no.</p>
+		  </div>
+				<button id="opener1">Mario Rossi</button>
+	        </p>
+		</div>
+        
+		<div id="tabs-2">
+			<p>
+       	  <div id="dialog2" title="Mario Bianchi">
+					<p>Ciao Mario, ma Marina?</p>
+		  </div>
+				<button id="opener2">Mario Bianchi</button>
+	        </p>
+		</div>
+        
+		<div id="tabs-3">
+			<p>
+       	  <div id="dialog3" title="Mario Verdi">
+					<p>Volevo sapere delle cose...</p>
+		  </div>
+				<button id="opener3">Mario Verdi</button>
+            </p>
+			<p>
+       	  <div id="dialog4" title="Giuseppe Verdi">
+					<p>Oggi non so cosa comporre :)</p>
+		  </div>
+				<button id="opener4">Giuseppe Verdi</button>
+            </p>
+		</div>
+	</div>
+   	
+    <div class="portlet_3" id="mario">
+			<div class="portlet-header">Super Mario Game</div>
+			<div class="portlet-content_3" align="center">
+       		  <script type="text/javascript" src="http://cdn.widgetserver.com/syndication/subscriber/InsertWidget.js"></script><script type="text/javascript">if (WIDGETBOX) WIDGETBOX.renderWidget('40c458d3-d41b-4162-8ddf-684f497bb985');</script>
+        	</div>
+  	</div>
+<img src="../../../../../miosito/www/img/sostegno_invisibile.jpg" width="300" height="10" />
+</div>
+
+</div>
+
+<div class="column" id="col_3">
+		<div class="portlet_2" id="news">
+			<div class="portlet-header">News</div>
+			<div class="portlet-content_2">
+				<div align='center'><iframe align='center' src='http://www.freeonline.org/cs/bnews.htm' width='380' height='175' marginwidth='0' marginheight='0' hspace='0' vspace='0' frameborder='0' scrolling='no' allowtransparency="true"></iframe><br clear=all>
+                </div>
+				<table width="300" border="0" cellspacing="0" cellpadding="0" align="center">
+				<tr> 
+				<td><div align="right"><i><a href="http://www.freeonline.org/" target="_blank" title="News fornite da Freeonline.it"><font color=Red size="1" face="Verdana, Arial, Helvetica, sans-serif">news by Freeonline.it</font></a></i></div></td>
+				</tr>
+				</table>            
+            </div>
+		</div>
+<img src="../../../../../miosito/www/img/sostegno_invisibile.jpg" width="300" height="10" />
+</div>
+
+</body>
+</html>
